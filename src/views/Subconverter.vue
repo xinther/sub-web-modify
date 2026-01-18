@@ -330,13 +330,13 @@ export default {
           "Shadowsocks Android(SIP008)": "sssub",
           ShadowsocksD: "ssd",
           "自动判断客户端": "auto",
-        },
+        }，
         shortTypes: {
           "v1.mk": "https://v1.mk/short",
           "d1.mk": "https://d1.mk/short",
           "dlj.tf": "https://dlj.tf/short",
           "suo.yt": "https://suo.yt/short",
-        },
+        }，
         customBackend: {
           "自用负载均衡后端【vless reality+hy1+hy2】": "https://subapi.hkedu.dpdns.org",
           "CM应急备用后端【vless reality+hy1+hy2】": "https://subapi.fxxk.dedyn.io",
@@ -344,14 +344,14 @@ export default {
           nameless13提供: "https://www.nameless13.com",
           subconverter作者提供: "https://sub.xeton.dev",
           "sub-web作者提供": "https://api.wcc.best",
-        },
+        }，
         backendOptions: [
-          { value: "https://subapi.hkedu.dpdns.org" },
-          { value: "https://subapi.fxxk.dedyn.io" },
-          { value: "https://url.v1.mk" },
-          { value: "https://www.nameless13.com" },
-          { value: "https://sub.xeton.dev" },
-          { value: "https://api.wcc.best" },
+          { value: "https://subapi.hkedu.dpdns.org" }，
+          { value: "https://subapi.fxxk.dedyn.io" }，
+          { value: "https://url.v1.mk" }，
+          { value: "https://www.nameless13.com" }，
+          { value: "https://sub.xeton.dev" }，
+          { value: "https://api.wcc.best" }，
         ],
         remoteConfig: [
           {
@@ -360,44 +360,44 @@ export default {
               {
                 label: "CM_Online 默认版 识别港美地区(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online.ini"
-              },
+              }，
               {
                 label: "CM_Online_MultiCountry 识别港美地区 负载均衡(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_MultiCountry.ini"
-              },
+              }，
               {
                 label: "CM_Online_MultiCountry_CF 识别港美地区、CloudFlareCDN 负载均衡 Worker节点专用(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_MultiCountry_CF.ini"
-              },
+              }，
               {
                 label: "CM_Online_Full 识别多地区分组(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full.ini"
-              },
+              }，
               {
                 label: "CM_Online_Full_CF 识别多地区、CloudFlareCDN 分组 Worker节点专用(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full_CF.ini"
-              },
+              }，
               {
                 label: "CM_Online_Full_MultiMode 识别多地区 负载均衡(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full_MultiMode.ini"
-              },
+              }，
               {
                 label: "CM_Online_Full_MultiMode_CF 识别多地区、CloudFlareCDN 负载均衡 Worker节点专用(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full_MultiMode_CF.ini"
               }
             ]
-          },
+          }，
           {
             label: "通用",
             options: [
               {
                 label: "默认",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini"
-              },
+              }，
               {
                 label: "默认（自动测速）",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_AdblockPlus.ini"
-              },
+              }，
               {
                 label: "默认（索尼电视专用）",
                 value: "https://raw.githubusercontent.com/youshandefeiyang/webcdn/main/SONY.ini"
@@ -405,7 +405,7 @@ export default {
               {
                 label: "默认（附带用于 Clash 的 AdGuard DNS）",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/default_with_clash_adg.yml"
-              }，
+              },
               {
                 label: "ACL_全分组 Dream修改版",
                 value: "https://raw.githubusercontent.com/WC-Dream/ACL4SSR/WD/Clash/config/ACL4SSR_Online_Full_Dream.ini"
@@ -839,7 +839,7 @@ export default {
   created() {
     document.title = "在线订阅转换工具";
     this.isPC = this.$getOS().isPc;
-  }，
+  },
   mounted() {
     //this.tanchuang();
     this。form。clientType = "clash";
@@ -1308,6 +1308,7 @@ export default {
   }
 };
 </script>
+
 
 
 
