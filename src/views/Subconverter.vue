@@ -838,7 +838,7 @@ export default {
   },
   mounted() {
     //this.tanchuang();
-    this。form。clientType = "clash";
+    this.form.clientType = "clash";
     this.getBackendVersion();
     this.anhei();
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
@@ -953,7 +953,7 @@ export default {
         return false;
       }
       let backend =
-        this。form.customBackend === ""
+        this.form.customBackend === ""
           ? defaultBackend
           : this.form.customBackend;
       let sourceSub = this.form.sourceSubUrl;
@@ -978,7 +978,7 @@ export default {
         this.customSubUrl +=
           "&include=" + encodeURIComponent(this.form.includeRemarks);
       }
-      if (this。form.filename !== "") {
+      if (this.form.filename !== "") {
         this.customSubUrl +=
           "&filename=" + encodeURIComponent(this.form.filename);
       }
@@ -998,7 +998,7 @@ export default {
         this.customSubUrl +=
           "&append_type=" + this.form.appendType.toString();
       }
-      if (this。form.tls13) {
+      if (this.form.tls13) {
         this.customSubUrl +=
           "&tls13=" + this.form.tls13.toString();
       }
@@ -1016,15 +1016,15 @@ export default {
         "&udp=" +
         this.form.udp.toString() +
         "&tfo=" +
-        this。form。tfo.toString() +
+        this.form.tfo.toString() +
         "&expand=" +
         this.form.expand.toString() +
         "&scv=" +
         this.form.scv.toString() +
         "&fdn=" +
         this.form.fdn.toString();
-      if (this。form.clientType.includes("surge")) {
-        if (this。form.tpl.surge.doh === true) {
+      if (this.form.clientType.includes("surge")) {
+        if (this.form.tpl.surge.doh === true) {
           this.customSubUrl += "&surge.doh=true";
         }
       }
@@ -1059,11 +1059,11 @@ export default {
             "Content-Type": "application/form-data; charset=utf-8"
           }
         })
-        。键,然后(res => {
+        .then(res => {
           if (res.data.Code === 1 && res.data.ShortUrl !== "") {
-            this。customShortSubUrl = res.data.ShortUrl;
+            this.customShortSubUrl = res.data.ShortUrl;
             this.$copyText(res.data.ShortUrl);
-            this。$message。success("短链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API,需手动点击复制按钮）");
+            this.$message.success("短链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API,需手动点击复制按钮）");
           } else {
             this.$message.error("短链接获取失败：" + res.data.Message);
           }
@@ -1100,8 +1100,8 @@ export default {
         .catch(() => {
           this.$message.error("远程配置上传失败");
         })
-        。finally(() => {
-          this。loading2 = false;
+        .finally(() => {
+          this.loading2 = false;
         });
     },
     analyzeUrl() {
@@ -1204,7 +1204,7 @@ export default {
           this.form.tfo = param.get("tfo") === 'true';
         }
         if (param.get("expand")) {
-          this。form。expand = param.get("expand") === 'true';
+          this.form.expand = param.get("expand") === 'true';
         }
         if (param.get("scv")) {
           this.form.scv = param.get("scv") === 'true';
@@ -1260,12 +1260,12 @@ export default {
       data.append("sortscript", encodeURIComponent(this.uploadScript));
       data.append("filterscript", encodeURIComponent(this.uploadFilter));
       this.$axios
-        。post(configScriptBackend, data, {
+        .post(configScriptBackend, data, {
           header: {
             "Content-Type": "application/form-data; charset=utf-8"
           }
         })
-        。then(res => {
+        .then(res => {
           if (res.data.code === 0 && res.data.data !== "") {
             this.$message.success(
               "自定义JS上传成功,订阅链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API,需手动点击复制按钮）"
@@ -1275,29 +1275,29 @@ export default {
             this.dialogUploadConfigVisible = false;
             this.btnBoolean = true;
           } else {
-            this。$message。error("自定义JS上传失败: " + res.data.msg);
+            this.$message.error("自定义JS上传失败: " + res.data.msg);
           }
         })
-        。catch(() => {
+        .catch(() => {
           this.$message.error("自定义JS上传失败");
         })
-        。finally(() => {
+        .finally(() => {
           this.loading2 = false;
         })
     },
     getBackendVersion() {
       this.$axios
-        。get(
+        .get(
           this.form.customBackend + "/version"
         )
-        。then(res => {
+        .then(res => {
           this.backendVersion = res.data.replace(/backend\n$/gm, "");
           this.backendVersion = this.backendVersion.replace("subconverter", "SubConverter");
           let a = this.form.customBackend.indexOf("url.v1.mk") !== -1 || this.form.customBackend.indexOf("sub.d1.mk") !== -1;
           let b = this.form.customBackend.indexOf("127.0.0.1") !== -1;
           a ? this.$message.success(`${this.backendVersion}` + "肥羊负载均衡增强版后端,已屏蔽免费节点池（会返回403）,额外支持vless reality+hysteria+hysteria2订阅转换") : b ? this.$message.success(`${this.backendVersion}` + "本地局域网自建版后端") : this.$message.success(`${this.backendVersion}`);
         })
-        。catch(() => {
+        .catch(() => {
           this.$message.error("请求SubConverter版本号返回数据失败,该后端不可用！");
         });
     }
