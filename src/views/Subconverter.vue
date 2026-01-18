@@ -338,10 +338,9 @@ export default {
           "suo.yt": "https://suo.yt/short",
         },
         customBackend: {
-          "负载均衡后端【vless reality+hy1+hy2】": "https://subapi.hkedu.dpdns.org",
+          "自用负载均衡后端【vless reality+hy1+hy2】": "https://subapi.hkedu.dpdns.org",
           "CM应急备用后端【vless reality+hy1+hy2】": "https://subapi.fxxk.dedyn.io",
           "肥羊增强型后端【vless reality+hy1+hy2】": "https://url.v1.mk",
-          "肥羊备用后端【vless reality+hy1+hy2】": "https://sub.d1.mk",
           nameless13提供: "https://www.nameless13.com",
           subconverter作者提供: "https://sub.xeton.dev",
           "sub-web作者提供": "https://api.wcc.best",
@@ -350,7 +349,6 @@ export default {
           { value: "https://subapi.hkedu.dpdns.org" },
           { value: "https://subapi.fxxk.dedyn.io" },
           { value: "https://url.v1.mk" },
-          { value: "https://sub.d1.mk" },
           { value: "https://www.nameless13.com" },
           { value: "https://sub.xeton.dev" },
           { value: "https://api.wcc.best" },
@@ -407,7 +405,7 @@ export default {
               {
                 label: "默认（附带用于 Clash 的 AdGuard DNS）",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/default_with_clash_adg.yml"
-              },
+              }，
               {
                 label: "ACL_全分组 Dream修改版",
                 value: "https://raw.githubusercontent.com/WC-Dream/ACL4SSR/WD/Clash/config/ACL4SSR_Online_Full_Dream.ini"
@@ -786,12 +784,12 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://url.v1.mk" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "https://subapi.hkedu.dpdns.org" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
         remoteConfig: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online.ini",
         excludeRemarks: "",
         includeRemarks: "",
-        filename: "",
+        filename: ""，
         rename: "",
         devid: "",
         interval: "",
@@ -841,10 +839,10 @@ export default {
   created() {
     document.title = "在线订阅转换工具";
     this.isPC = this.$getOS().isPc;
-  },
+  }，
   mounted() {
     //this.tanchuang();
-    this.form.clientType = "clash";
+    this。form。clientType = "clash";
     this.getBackendVersion();
     this.anhei();
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
@@ -932,9 +930,9 @@ export default {
       window.open(downld);
     },
     gotoBasicVideo() {
-      this.$alert("别忘了关注友善的肥羊哦！", {
+      this.$alert("别忘了关注友善的我哦！", {
         type: "warning",
-        confirmButtonText: '确定',
+        confirmButtonText: '确定'，
         customClass: 'msgbox',
         showClose: false,
       })
@@ -943,7 +941,7 @@ export default {
         });
     },
     gotoAdvancedVideo() {
-      this.$alert("别忘了关注友善的肥羊哦！", {
+      this.$alert("别忘了关注友善的我哦！", {
         type: "warning",
         confirmButtonText: '确定',
         customClass: 'msgbox',
@@ -959,7 +957,7 @@ export default {
         return false;
       }
       let backend =
-        this.form.customBackend === ""
+        this。form.customBackend === ""
           ? defaultBackend
           : this.form.customBackend;
       let sourceSub = this.form.sourceSubUrl;
@@ -984,7 +982,7 @@ export default {
         this.customSubUrl +=
           "&include=" + encodeURIComponent(this.form.includeRemarks);
       }
-      if (this.form.filename !== "") {
+      if (this。form.filename !== "") {
         this.customSubUrl +=
           "&filename=" + encodeURIComponent(this.form.filename);
       }
@@ -1004,7 +1002,7 @@ export default {
         this.customSubUrl +=
           "&append_type=" + this.form.appendType.toString();
       }
-      if (this.form.tls13) {
+      if (this。form.tls13) {
         this.customSubUrl +=
           "&tls13=" + this.form.tls13.toString();
       }
@@ -1022,15 +1020,15 @@ export default {
         "&udp=" +
         this.form.udp.toString() +
         "&tfo=" +
-        this.form.tfo.toString() +
+        this。form。tfo.toString() +
         "&expand=" +
         this.form.expand.toString() +
         "&scv=" +
         this.form.scv.toString() +
         "&fdn=" +
         this.form.fdn.toString();
-      if (this.form.clientType.includes("surge")) {
-        if (this.form.tpl.surge.doh === true) {
+      if (this。form.clientType.includes("surge")) {
+        if (this。form.tpl.surge.doh === true) {
           this.customSubUrl += "&surge.doh=true";
         }
       }
@@ -1065,11 +1063,11 @@ export default {
             "Content-Type": "application/form-data; charset=utf-8"
           }
         })
-        .then(res => {
+        。键，然后(res => {
           if (res.data.Code === 1 && res.data.ShortUrl !== "") {
-            this.customShortSubUrl = res.data.ShortUrl;
+            this。customShortSubUrl = res.data.ShortUrl;
             this.$copyText(res.data.ShortUrl);
-            this.$message.success("短链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API，需手动点击复制按钮）");
+            this。$message。success("短链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API，需手动点击复制按钮）");
           } else {
             this.$message.error("短链接获取失败：" + res.data.Message);
           }
@@ -1106,8 +1104,8 @@ export default {
         .catch(() => {
           this.$message.error("远程配置上传失败");
         })
-        .finally(() => {
-          this.loading2 = false;
+        。finally(() => {
+          this。loading2 = false;
         });
     },
     analyzeUrl() {
@@ -1210,7 +1208,7 @@ export default {
           this.form.tfo = param.get("tfo") === 'true';
         }
         if (param.get("expand")) {
-          this.form.expand = param.get("expand") === 'true';
+          this。form。expand = param.get("expand") === 'true';
         }
         if (param.get("scv")) {
           this.form.scv = param.get("scv") === 'true';
@@ -1247,7 +1245,7 @@ export default {
       data.append("emoji", encodeURIComponent(this.form.emoji.toString()));
       data.append("list", encodeURIComponent(this.form.nodeList.toString()));
       data.append("udp", encodeURIComponent(this.form.udp.toString()));
-      data.append("tfo", encodeURIComponent(this.form.tfo.toString()));
+      data.append("tfo"， encodeURIComponent(this.form.tfo.toString()));
       data.append("expand", encodeURIComponent(this.form.expand.toString()));
       data.append("scv", encodeURIComponent(this.form.scv.toString()));
       data.append("fdn", encodeURIComponent(this.form.fdn.toString()));
@@ -1281,7 +1279,7 @@ export default {
             this.dialogUploadConfigVisible = false;
             this.btnBoolean = true;
           } else {
-            this.$message.error("自定义JS上传失败: " + res.data.msg);
+            this。$message。error("自定义JS上传失败: " + res.data.msg);
           }
         })
         .catch(() => {
@@ -1310,5 +1308,6 @@ export default {
   }
 };
 </script>
+
 
 
