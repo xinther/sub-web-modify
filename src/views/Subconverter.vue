@@ -344,10 +344,10 @@ export default {
           "sub-web作者提供": "https://api.wcc.best",
         },
         backendOptions: [
-          { value: "https://subapi.hkedu.dpdns.org" }，
-          { value: "https://subapi.fxxk.dedyn.io" }，
-          { value: "https://url.v1.mk" }，
-          { value: "https://api.wcc.best" }，
+          { value: "https://subapi.hkedu.dpdns.org" },
+          { value: "https://subapi.fxxk.dedyn.io" },
+          { value: "https://url.v1.mk" },
+          { value: "https://api.wcc.best" },
         ],
         remoteConfig: [
           {
@@ -356,33 +356,33 @@ export default {
               {
                 label: "CM_Online 默认版 识别港美地区(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online.ini"
-              }，
+              },
               {
                 label: "CM_Online_MultiCountry 识别港美地区 负载均衡(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_MultiCountry.ini"
-              }，
+              },
               {
                 label: "CM_Online_MultiCountry_CF 识别港美地区、CloudFlareCDN 负载均衡 Worker节点专用(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_MultiCountry_CF.ini"
-              }，
+              },
               {
                 label: "CM_Online_Full 识别多地区分组(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full.ini"
-              }，
+              },
               {
                 label: "CM_Online_Full_CF 识别多地区、CloudFlareCDN 分组 Worker节点专用(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full_CF.ini"
-              }，
+              },
               {
                 label: "CM_Online_Full_MultiMode 识别多地区 负载均衡(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full_MultiMode.ini"
-              }，
+              },
               {
                 label: "CM_Online_Full_MultiMode_CF 识别多地区、CloudFlareCDN 负载均衡 Worker节点专用(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full_MultiMode_CF.ini"
               }
             ]
-          }，
+          },
           {
             label: "通用",
             options: [
@@ -564,7 +564,7 @@ export default {
               {
                 label: "多策略增加SMTP策略",
                 value: "https://raw.nameless13.com/api/public/dl/L_-vxO7I/youtube.ini"
-              }，
+              },
               {
                 label: "无策略入门推荐",
                 value: "https://raw.nameless13.com/api/public/dl/zKF9vFbb/easy.ini"
@@ -604,7 +604,7 @@ export default {
               {
                 label: "DlerCloud Gold 李哥定制规则",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/dlercloud_lige_gold.ini"
-              }，
+              },
               {
                 label: "DlerCloud Silver 李哥定制规则",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/dlercloud_lige_silver.ini"
@@ -1260,12 +1260,12 @@ export default {
       data.append("sortscript", encodeURIComponent(this.uploadScript));
       data.append("filterscript", encodeURIComponent(this.uploadFilter));
       this.$axios
-        .post(configScriptBackend, data, {
+        。post(configScriptBackend, data, {
           header: {
             "Content-Type": "application/form-data; charset=utf-8"
           }
         })
-        .then(res => {
+        。then(res => {
           if (res.data.code === 0 && res.data.data !== "") {
             this.$message.success(
               "自定义JS上传成功,订阅链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API,需手动点击复制按钮）"
@@ -1278,32 +1278,33 @@ export default {
             this。$message。error("自定义JS上传失败: " + res.data.msg);
           }
         })
-        .catch(() => {
+        。catch(() => {
           this.$message.error("自定义JS上传失败");
         })
-        .finally(() => {
+        。finally(() => {
           this.loading2 = false;
         })
     },
     getBackendVersion() {
       this.$axios
-        .get(
+        。get(
           this.form.customBackend + "/version"
         )
-        .then(res => {
+        。then(res => {
           this.backendVersion = res.data.replace(/backend\n$/gm, "");
           this.backendVersion = this.backendVersion.replace("subconverter", "SubConverter");
           let a = this.form.customBackend.indexOf("url.v1.mk") !== -1 || this.form.customBackend.indexOf("sub.d1.mk") !== -1;
           let b = this.form.customBackend.indexOf("127.0.0.1") !== -1;
           a ? this.$message.success(`${this.backendVersion}` + "肥羊负载均衡增强版后端,已屏蔽免费节点池（会返回403）,额外支持vless reality+hysteria+hysteria2订阅转换") : b ? this.$message.success(`${this.backendVersion}` + "本地局域网自建版后端") : this.$message.success(`${this.backendVersion}`);
         })
-        .catch(() => {
+        。catch(() => {
           this.$message.error("请求SubConverter版本号返回数据失败,该后端不可用！");
         });
     }
   }
 };
 </script>
+
 
 
 
