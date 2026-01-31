@@ -188,7 +188,7 @@
               </el-form-item>
               <el-form-item label-width="0px" style="text-align: center">
                 <el-button style="width: 250px;" type="success" icon="el-icon-video-play"
-                  @click="centerDialogVisible = true">视频教程
+                  @click="centerDialogVisible = true">
                 </el-button>
               </el-form-item>
             </el-form>
@@ -1304,6 +1304,7 @@ export default {
   }
 };
 </script>
+
 
 
 
